@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { bigint, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { bigint, pgEnum, pgTable, text, timestamp, serial } from "drizzle-orm/pg-core";
 
 export const keyStatus = pgEnum("key_status", [
 	"default",
@@ -45,3 +45,13 @@ export const messages = pgTable("messages", {
 		.notNull(),
 	message: text("message"),
 });
+
+export const user = pgTable("user", {
+	id: serial("id"),
+	name: text("name"),
+	email: text("email"),
+	password: text("password"),
+	role: text("role").$type<"admin" | "customer">(),
+	createdAt: timestamp("created_at"),
+	updatedAt: timestamp("updated_at"),
+  });
