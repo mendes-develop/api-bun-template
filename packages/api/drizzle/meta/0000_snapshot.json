@@ -1,6 +1,6 @@
 {
-	"id": "00000000-0000-0000-0000-000000000000",
-	"prevId": "",
+	"id": "977c3c51-0f6e-4f06-b18a-ac204683a1a1",
+	"prevId": "00000000-0000-0000-0000-000000000000",
 	"version": "5",
 	"dialect": "pg",
 	"tables": {
@@ -10,19 +10,18 @@
 			"columns": {
 				"id": {
 					"name": "id",
-					"type": "bigint",
+					"type": "serial",
 					"primaryKey": true,
 					"notNull": true
 				},
-				"created_at": {
-					"name": "created_at",
-					"type": "timestamp with time zone",
-					"primaryKey": false,
-					"notNull": true,
-					"default": "now()"
-				},
 				"message": {
 					"name": "message",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
 					"type": "text",
 					"primaryKey": false,
 					"notNull": false
@@ -33,25 +32,58 @@
 			"compositePrimaryKeys": {},
 			"uniqueConstraints": {}
 		},
-		"messages": {
-			"name": "messages",
+		"orders": {
+			"name": "orders",
 			"schema": "",
 			"columns": {
 				"id": {
 					"name": "id",
-					"type": "bigint",
+					"type": "serial",
 					"primaryKey": true,
 					"notNull": true
 				},
-				"created_at": {
-					"name": "created_at",
-					"type": "timestamp with time zone",
-					"primaryKey": false,
-					"notNull": true,
-					"default": "now()"
-				},
 				"message": {
 					"name": "message",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {}
+		},
+		"products": {
+			"name": "products",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "serial",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"name": {
+					"name": "name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"quantity": {
+					"name": "quantity",
+					"type": "numeric",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
 					"type": "text",
 					"primaryKey": false,
 					"notNull": false
@@ -63,66 +95,11 @@
 			"uniqueConstraints": {}
 		}
 	},
-	"enums": {
-		"key_status": {
-			"name": "key_status",
-			"values": {
-				"default": "default",
-				"valid": "valid",
-				"invalid": "invalid",
-				"expired": "expired"
-			}
-		},
-		"key_type": {
-			"name": "key_type",
-			"values": {
-				"aead-ietf": "aead-ietf",
-				"aead-det": "aead-det",
-				"hmacsha512": "hmacsha512",
-				"hmacsha256": "hmacsha256",
-				"auth": "auth",
-				"shorthash": "shorthash",
-				"generichash": "generichash",
-				"kdf": "kdf",
-				"secretbox": "secretbox",
-				"secretstream": "secretstream",
-				"stream_xchacha20": "stream_xchacha20"
-			}
-		},
-		"factor_type": {
-			"name": "factor_type",
-			"values": {
-				"totp": "totp",
-				"webauthn": "webauthn"
-			}
-		},
-		"factor_status": {
-			"name": "factor_status",
-			"values": {
-				"unverified": "unverified",
-				"verified": "verified"
-			}
-		},
-		"aal_level": {
-			"name": "aal_level",
-			"values": {
-				"aal1": "aal1",
-				"aal2": "aal2",
-				"aal3": "aal3"
-			}
-		},
-		"code_challenge_method": {
-			"name": "code_challenge_method",
-			"values": {
-				"s256": "s256",
-				"plain": "plain"
-			}
-		}
-	},
+	"enums": {},
 	"schemas": {},
 	"_meta": {
+		"columns": {},
 		"schemas": {},
-		"tables": {},
-		"columns": {}
+		"tables": {}
 	}
 }
