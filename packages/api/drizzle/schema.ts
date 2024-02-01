@@ -1,5 +1,13 @@
 import { sql } from "drizzle-orm";
-import { bigint, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import {
+	bigint,
+	numeric,
+	pgEnum,
+	pgTable,
+	serial,
+	text,
+	timestamp,
+} from "drizzle-orm/pg-core";
 
 export const keyStatus = pgEnum("key_status", [
 	"expired",
@@ -44,4 +52,17 @@ export const notifications = pgTable("notifications", {
 		.defaultNow()
 		.notNull(),
 	message: text("message"),
+});
+
+export const orders = pgTable("orders", {
+	id: serial("id").primaryKey().notNull(),
+	message: text("message"),
+	createdAt: text("created_at"),
+});
+
+export const products = pgTable("products", {
+	id: serial("id").primaryKey().notNull(),
+	name: text("name"),
+	quantity: numeric("quantity"),
+	createdAt: text("created_at"),
 });

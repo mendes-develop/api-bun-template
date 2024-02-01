@@ -1,5 +1,6 @@
 import { supabase } from "@/supabase/supabase";
 import { Elysia, t } from "elysia";
+import { signInWithPassword, signUpWithEmail } from "./handler";
 
 const swaggerGroup = {
 	detail: {
@@ -27,10 +28,7 @@ export const auth = new Elysia({ prefix: "/auth" })
 				.post(
 					"/signup",
 					async ({ body }) => {
-						const { data, error } = await supabase.auth.signUp({
-							email: body.email,
-							password: body.password,
-						});
+						const { data, error } = await signUpWithEmail(body);
 
 						if (error) return error;
 
@@ -41,10 +39,7 @@ export const auth = new Elysia({ prefix: "/auth" })
 				.post(
 					"/signin",
 					async ({ body }) => {
-						const { data, error } = await supabase.auth.signInWithPassword({
-							email: body.email,
-							password: body.password,
-						});
+						const { data, error } = await signInWithPassword(body);
 
 						if (error) return error;
 
