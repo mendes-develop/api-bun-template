@@ -1,0 +1,9 @@
+Drizzle
+
+https://orm.drizzle.team/docs/get-started-postgresql#supabase
+
+bun generate
+
+bun run src/drizzle/migrate.ts -> run second
+
+bun introspect -> to make generate

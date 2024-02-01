@@ -1,57 +1,22 @@
-import { sql } from "drizzle-orm";
-import { bigint, pgEnum, pgTable, text, timestamp, serial } from "drizzle-orm/pg-core";
+import { pgTable, pgEnum, serial, text } from "drizzle-orm/pg-core"
+  import { sql } from "drizzle-orm"
 
-export const keyStatus = pgEnum("key_status", [
-	"default",
-	"valid",
-	"invalid",
-	"expired",
-]);
-export const keyType = pgEnum("key_type", [
-	"aead-ietf",
-	"aead-det",
-	"hmacsha512",
-	"hmacsha256",
-	"auth",
-	"shorthash",
-	"generichash",
-	"kdf",
-	"secretbox",
-	"secretstream",
-	"stream_xchacha20",
-]);
-export const factorType = pgEnum("factor_type", ["totp", "webauthn"]);
-export const factorStatus = pgEnum("factor_status", ["unverified", "verified"]);
-export const aalLevel = pgEnum("aal_level", ["aal1", "aal2", "aal3"]);
-export const codeChallengeMethod = pgEnum("code_challenge_method", [
-	"s256",
-	"plain",
-]);
+export const keyStatus = pgEnum("key_status", ['expired', 'invalid', 'valid', 'default'])
+export const keyType = pgEnum("key_type", ['stream_xchacha20', 'secretstream', 'secretbox', 'kdf', 'generichash', 'shorthash', 'auth', 'hmacsha256', 'hmacsha512', 'aead-det', 'aead-ietf'])
+export const factorType = pgEnum("factor_type", ['webauthn', 'totp'])
+export const factorStatus = pgEnum("factor_status", ['verified', 'unverified'])
+export const aalLevel = pgEnum("aal_level", ['aal3', 'aal2', 'aal1'])
+export const codeChallengeMethod = pgEnum("code_challenge_method", ['plain', 's256'])
+
 
 export const notifications = pgTable("notifications", {
-	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	id: bigint("id", { mode: "number" }).primaryKey().notNull(),
-	createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
-		.defaultNow()
-		.notNull(),
+	id: serial("id").primaryKey().notNull(),
 	message: text("message"),
+	createdAt: text("created_at"),
 });
 
-export const messages = pgTable("messages", {
-	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
-	id: bigint("id", { mode: "number" }).primaryKey().notNull(),
-	createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
-		.defaultNow()
-		.notNull(),
-	message: text("message"),
+export const orders = pgTable("orders", {
+	id: serial("id").primaryKey().notNull(),
+	order: text("order"),
+	createdAt: text("created_at"),
 });
-
-export const user = pgTable("user", {
-	id: serial("id"),
-	name: text("name"),
-	email: text("email"),
-	password: text("password"),
-	role: text("role").$type<"admin" | "customer">(),
-	createdAt: timestamp("created_at"),
-	updatedAt: timestamp("updated_at"),
-  });

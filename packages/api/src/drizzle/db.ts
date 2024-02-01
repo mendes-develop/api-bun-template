@@ -8,5 +8,5 @@ if (!connectionString) {
 }
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
-const client = postgres(connectionString, { prepare: false });
-export const db = drizzle(client);
+export const connection = postgres(connectionString, { prepare: false });
+export const db = drizzle(connection);

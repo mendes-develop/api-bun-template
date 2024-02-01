@@ -1,7 +1,7 @@
 import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
 
-export const notifications = pgTable("notifications", {
+export const orders = pgTable("orders", {
 	id: serial("id").primaryKey(),
-	message: text("message"),
+	order: text("order"),
 	createdAt: text("created_at"),
 });

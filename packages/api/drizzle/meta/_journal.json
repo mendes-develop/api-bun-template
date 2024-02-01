@@ -1,13 +1,20 @@
 {
-	"version": "5",
-	"dialect": "pg",
-	"entries": [
-		{
-			"idx": 0,
-			"version": "5",
-			"when": 1705651081996,
-			"tag": "0000_bumpy_smiling_tiger",
-			"breakpoints": true
-		}
-	]
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1706792965796,
+      "tag": "0000_mushy_azazel",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1706793112812,
+      "tag": "0001_sour_zeigeist",
+      "breakpoints": true
+    }
+  ]
 }

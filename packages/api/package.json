@@ -6,6 +6,7 @@
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
     "introspect": "drizzle-kit introspect:pg",
+    "generate": "drizzle-kit generate:pg",
     "lint": "bunx @biomejs/biome check --apply ./"
   },
   "dependencies": {
