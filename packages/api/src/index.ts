@@ -4,7 +4,6 @@ import { Elysia, t } from "elysia";
 import { auth } from "./resources/auth/route";
 import { notifications } from "./resources/notifications/route";
 
-
 const port = process.env.PORT || 4000;
 
 export const app = new Elysia()

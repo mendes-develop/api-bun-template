@@ -2,33 +2,33 @@ import { sql } from "drizzle-orm";
 import { bigint, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const keyStatus = pgEnum("key_status", [
-	"default",
-	"valid",
-	"invalid",
 	"expired",
+	"invalid",
+	"valid",
+	"default",
 ]);
 export const keyType = pgEnum("key_type", [
-	"aead-ietf",
-	"aead-det",
-	"hmacsha512",
-	"hmacsha256",
-	"auth",
-	"shorthash",
-	"generichash",
-	"kdf",
-	"secretbox",
-	"secretstream",
 	"stream_xchacha20",
+	"secretstream",
+	"secretbox",
+	"kdf",
+	"generichash",
+	"shorthash",
+	"auth",
+	"hmacsha256",
+	"hmacsha512",
+	"aead-det",
+	"aead-ietf",
 ]);
-export const factorType = pgEnum("factor_type", ["totp", "webauthn"]);
-export const factorStatus = pgEnum("factor_status", ["unverified", "verified"]);
-export const aalLevel = pgEnum("aal_level", ["aal1", "aal2", "aal3"]);
+export const aalLevel = pgEnum("aal_level", ["aal3", "aal2", "aal1"]);
 export const codeChallengeMethod = pgEnum("code_challenge_method", [
-	"s256",
 	"plain",
+	"s256",
 ]);
+export const factorStatus = pgEnum("factor_status", ["verified", "unverified"]);
+export const factorType = pgEnum("factor_type", ["webauthn", "totp"]);
 
-export const notifications = pgTable("notifications", {
+export const messages = pgTable("messages", {
 	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
 	id: bigint("id", { mode: "number" }).primaryKey().notNull(),
 	createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
@@ -37,7 +37,7 @@ export const notifications = pgTable("notifications", {
 	message: text("message"),
 });
 
-export const messages = pgTable("messages", {
+export const notifications = pgTable("notifications", {
 	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
 	id: bigint("id", { mode: "number" }).primaryKey().notNull(),
 	createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })

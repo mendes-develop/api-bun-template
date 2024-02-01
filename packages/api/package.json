@@ -1,24 +1,25 @@
 {
-  "name": "api",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts",
-    "start": "bun run src/index.ts",
-    "introspect": "drizzle-kit introspect:pg",
-    "lint": "bunx @biomejs/biome check --apply ./"
-  },
-  "dependencies": {
-    "@elysiajs/cors": "^0.8.0",
-    "@elysiajs/swagger": "^0.8.3",
-    "@supabase/supabase-js": "^2.39.3",
-    "drizzle-orm": "^0.29.3",
-    "elysia": "latest",
-    "postgres": "^3.4.3"
-  },
-  "devDependencies": {
-    "bun-types": "latest",
-    "drizzle-kit": "^0.20.13"
-  },
-  "module": "src/index.js"
+	"name": "api",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "bun run --watch src/index.ts",
+		"start": "bun run src/index.ts",
+		"introspect": "drizzle-kit introspect:pg",
+		"generate": "drizzle-kit generate:pg",
+		"lint": "bunx @biomejs/biome check --apply ./"
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^0.8.0",
+		"@elysiajs/swagger": "^0.8.3",
+		"@supabase/supabase-js": "^2.39.3",
+		"drizzle-orm": "^0.29.3",
+		"elysia": "latest",
+		"postgres": "^3.4.3"
+	},
+	"devDependencies": {
+		"bun-types": "latest",
+		"drizzle-kit": "^0.20.13"
+	},
+	"module": "src/index.js"
 }
