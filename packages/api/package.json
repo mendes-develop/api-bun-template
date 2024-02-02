@@ -7,6 +7,7 @@
 		"start": "bun run src/index.ts",
 		"introspect": "drizzle-kit introspect:pg",
 		"generate": "drizzle-kit generate:pg",
+		"studio": "drizzle-kit studio --port 3000",
 		"lint": "bunx @biomejs/biome check --apply ./"
 	},
 	"dependencies": {
@@ -20,6 +21,5 @@
 	"devDependencies": {
 		"bun-types": "latest",
 		"drizzle-kit": "^0.20.13"
-	},
-	"module": "src/index.js"
+	}
 }

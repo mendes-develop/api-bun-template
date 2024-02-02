@@ -1,10 +1,11 @@
 import { supabase } from "@/supabase/supabase";
 import { Elysia, t } from "elysia";
 import { signInWithPassword, signUpWithEmail } from "./handler";
+import { tags } from "@/swagger";
 
 const swaggerGroup = {
 	detail: {
-		tags: ["Auth"],
+		tags: [tags.Auth],
 	},
 };
 

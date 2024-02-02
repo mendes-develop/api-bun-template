@@ -1,23 +1,14 @@
 import { cors } from "@elysiajs/cors";
-import { swagger } from "@elysiajs/swagger";
+import { swaggerMiddleware } from "@/swagger";
+import { auth } from "@/resources/auth/route";
 import { Elysia, t } from "elysia";
-import { auth } from "./resources/auth/route";
 import { notifications } from "./resources/notifications/route";
 
 const port = process.env.PORT || 4000;
 
 export const app = new Elysia()
 	.use(cors())
-	.use(
-		swagger({
-			documentation: {
-				tags: [
-					{ name: "Test", description: "Test endpoints" },
-					{ name: "Auth", description: "Authentication endpoints" },
-				],
-			},
-		}),
-	)
+	.use(swaggerMiddleware)
 	.use(auth)
 	.use(notifications)
 	.listen(port);
