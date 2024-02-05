@@ -1,5 +1,5 @@
 import { db } from "@/drizzle/db";
-import { notifications } from "@/resources/notifications/schema";
+import { notifications } from "@/drizzle/schema";
 import { eq } from "drizzle-orm";
 
 export const getAllNotifications = async () => {

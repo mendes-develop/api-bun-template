@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "migrate" : "turbo run migrate",
+    "generate" : "turbo run generate",
     "clean": "turbo run clean",
+    "studio": "turbo run studio",
     "dev": "turbo run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",

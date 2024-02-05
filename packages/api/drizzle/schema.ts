@@ -1,4 +1,4 @@
-import { pgTable, pgEnum, serial, text } from "drizzle-orm/pg-core"
+import { pgTable, pgEnum, serial, text, timestamp, numeric } from "drizzle-orm/pg-core"
   import { sql } from "drizzle-orm"
 
 export const keyStatus = pgEnum("key_status", ['expired', 'invalid', 'valid', 'default'])
@@ -12,11 +12,18 @@ export const codeChallengeMethod = pgEnum("code_challenge_method", ['plain', 's2
 export const notifications = pgTable("notifications", {
 	id: serial("id").primaryKey().notNull(),
 	message: text("message"),
-	createdAt: text("created_at"),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 });
 
 export const orders = pgTable("orders", {
 	id: serial("id").primaryKey().notNull(),
-	order: text("order"),
-	createdAt: text("created_at"),
+	message: text("message"),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+});
+
+export const products = pgTable("products", {
+	id: serial("id").primaryKey().notNull(),
+	name: text("name"),
+	quantidade: numeric("quantidade"),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 });

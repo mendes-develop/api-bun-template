@@ -7,7 +7,7 @@ import { notifications } from "./resources/notifications/route";
 
 const port = process.env.PORT || 4000;
 
-export const app = new Elysia()
+export const app:any = new Elysia()
 	.use(cors())
 	.use(
 		swagger({

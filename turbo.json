@@ -21,6 +21,12 @@
     },
     "clean": {
       "cache": false
+    },
+    "migrate": {
+    },
+    "generate": {     
+    },
+    "studio": {     
     }
   }
 }
