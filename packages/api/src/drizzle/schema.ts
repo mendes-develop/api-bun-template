@@ -1,20 +1,26 @@
-import { integer, pgTable, serial, text } from "drizzle-orm/pg-core";
+import { numeric, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
 export const notifications = pgTable("notifications", {
-	id: serial("id").primaryKey(),
+	id: serial("id").primaryKey().notNull(),
 	message: text("message"),
-	createdAt: text("created_at"),
+	createdAt: timestamp("created_at", { mode: "string" })
+		.defaultNow()
+		.notNull(),
 });
 
 export const orders = pgTable("orders", {
-	id: serial("id").primaryKey(),
-	quantity: text("message"),
-	createdAt: text("created_at"),
+	id: serial("id").primaryKey().notNull(),
+	message: text("message"),
+	createdAt: timestamp("created_at", { mode: "string" })
+		.defaultNow()
+		.notNull(),
 });
 
 export const products = pgTable("products", {
-	id: serial("id").primaryKey(),
+	id: serial("id").primaryKey().notNull(),
 	name: text("name"),
-	quantity: integer("quantity"),
-	createdAt: text("created_at"),
+	quantity: numeric("quantity"),
+	createdAt: timestamp("created_at", { mode: "string" })
+		.defaultNow()
+		.notNull(),
 });

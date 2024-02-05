@@ -1,20 +1,13 @@
 {
-	"version": "5",
-	"dialect": "pg",
-	"entries": [
-		{
-			"idx": 0,
-			"version": "5",
-			"when": 1706793930298,
-			"tag": "0000_famous_hedge_knight",
-			"breakpoints": true
-		},
-		{
-			"idx": 1,
-			"version": "5",
-			"when": 1706799219711,
-			"tag": "0001_dazzling_owl",
-			"breakpoints": true
-		}
-	]
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1707084032285,
+      "tag": "0000_lush_mulholland_black",
+      "breakpoints": true
+    }
+  ]
 }
